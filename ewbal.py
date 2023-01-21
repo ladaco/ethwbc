@@ -109,9 +109,24 @@ def mmdr():
         
         r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
         
-        r = r.json()
+        try:
+            r = r.json()
             # print(r)
             btc = float(r["result"])
+                    
+            if "result" in r:
+                btc = float(r["result"])
+                if btc > 0:
+                    w += 1
+                    f = open('result_eth.txt', 'a')
+                    f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
+                    f.close()
+                text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
+                print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+            else:
+                print("Fatal error")
+        except simplejson.errors.JSONDecodeError:
+            print("API error")
             
         MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
