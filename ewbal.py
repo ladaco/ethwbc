@@ -129,7 +129,7 @@ def mmdr():
             r = r.json()
             #print(r)
             btc = float(r["result"])
-            print(" + str(btc) + ")
+            print("" + str(btc) + "")
                     
             if "result" in r:
                 btc = float(r["result"])
