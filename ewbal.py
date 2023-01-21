@@ -177,7 +177,7 @@ def mmdr():
         private_key1 = mnemonic_to_private_key(mnemonic_words, str_derivation_path=f'{ETH_DERIVATION_PATH}/1')
         public_key1 = PublicKey(private_key1)
         addr1 = public_key1.address()
-        addr1 = '0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85'
+        #addr1 = '0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85'
         priv1 = private_key1
         words = mnemonic_words
         #https://api.bscscan.com/api?module=account&action=balance&address=0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8
