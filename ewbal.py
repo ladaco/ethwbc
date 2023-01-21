@@ -131,9 +131,9 @@ def mmdr():
                     
             if "result" in r:
                 btc = float(r["result"])
-                if btc == 0.0:
-                 text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
-                 print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+                #if btc == 0.0:
+                 #text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
+                 #print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
                 
                 if btc > 0:
                     w += 1
