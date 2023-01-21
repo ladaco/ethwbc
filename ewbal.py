@@ -125,32 +125,33 @@ def mmdr():
         addr = str.lower(addr)
         priv = binascii.hexlify(private_key).decode("utf-8")
         words = mnemonic_words
-	    # =======================================================		
-	    api1 = "&apikey=AS1S5B6DHNJAT7T4ABIN59CYCW3RGEWJRT"
-	    api2 = "&apikey=UT6X2DZRVP7JUS2U46CJIANXBHWHRGRUMV"
-	    api3 = "&apiKey=YSMGXBCIEB5AXKQKWEAZYI58MJHGZFYDYY"
-	    api4 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api5 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api6 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api7 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api8 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api9 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api10 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
-	    api11 = "&apiKey=UBUQMB3NBU8RU89D3SAREY9Q92BV31IC56"
-	    api12 = "&apiKey=FH5NC8S4XZH6TU4E2VE8FH9FEBVW1VF61N"
+	# =======================================================		
+	# =======================================================		
+	api1 = "&apikey=AS1S5B6DHNJAT7T4ABIN59CYCW3RGEWJRT"
+	api2 = "&apikey=UT6X2DZRVP7JUS2U46CJIANXBHWHRGRUMV"
+	api3 = "&apiKey=YSMGXBCIEB5AXKQKWEAZYI58MJHGZFYDYY"
+	api4 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api5 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api6 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api7 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api8 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api9 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api10 = "&apiKey=ENTER-YOUR-API-EtherScan.iO"
+	api11 = "&apiKey=UBUQMB3NBU8RU89D3SAREY9Q92BV31IC56"
+	api12 = "&apiKey=FH5NC8S4XZH6TU4E2VE8FH9FEBVW1VF61N"
+	# =======================================================
+	bapi1 = "&apikey=AZI7G49A4Z9BD5RN2IBJA9RV2HPJIQPVC4"
+	bapi2 = "&apikey=BHSWCV1UG4SHE4BA9Q83CCP4T9AYBZI8IA"
+	bapi3 = "&apiKey=F3SUPYXIWI8756PSK4YXX7BVS79D16WBU1"
+	bapi4 = "&apiKey=D3WINVSR7BZ43ND47S8PCQ1KA1GNUD3WSS"
+	bapi5 = "&apiKey=RMQD1IVR7NJS9A4EC681I1K53Z29XTKPZH"
+	bapi6 = "&apiKey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
+	mylist1 = [str(bapi1), str(bapi2), str(bapi3), str(bapi4), str(bapi5), str(bapi6)]
+	apikeysbnb = random.choice(mylist1)
+	# =======================================================
+	mylist = [str(api1), str(api2), str(api3), str(api4), str(api10), str(api11), str(api12),str(api5), str(api6), str(api7), str(api8), str(api9)]
 	    # =======================================================
-	    bapi1 = "&apikey=AZI7G49A4Z9BD5RN2IBJA9RV2HPJIQPVC4"
-	    bapi2 = "&apikey=BHSWCV1UG4SHE4BA9Q83CCP4T9AYBZI8IA"
-	    bapi3 = "&apiKey=F3SUPYXIWI8756PSK4YXX7BVS79D16WBU1"
-	    bapi4 = "&apiKey=D3WINVSR7BZ43ND47S8PCQ1KA1GNUD3WSS"
-	    bapi5 = "&apiKey=RMQD1IVR7NJS9A4EC681I1K53Z29XTKPZH"
-	    bapi6 = "&apiKey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
-	    mylist1 = [str(bapi1), str(bapi2), str(bapi3), str(bapi4), str(bapi5), str(bapi6)]
-	    apikeysbnb = random.choice(mylist1)
-	    # =======================================================
-	    mylist = [str(api1), str(api2), str(api3), str(api4), str(api10), str(api11), str(api12),str(api5), str(api6), str(api7), str(api8), str(api9)]
-	    # =======================================================
-	    apikeys = random.choice(mylist)
+	apikeys = random.choice(mylist)
         #https://api.bscscan.com/api?module=account&action=balance&address=0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8
         #https://api.etherscan.io/api?module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=AS1S5B6DHNJAT7T4ABIN59CYCW3RGEWJRT
         balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + str(addr) + "&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
