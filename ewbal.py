@@ -40,7 +40,7 @@ class PublicKey:
 def mnemonic_to_bip39seed(mnemonic, passphrase):
     mnemonic = bytes(mnemonic, 'utf8')
     salt = bytes(BIP39_SALT_MODIFIER + passphrase, 'utf8')
-    return cryptowallethash.pbkdf2_hmac('sha512', mnemonic, salt, BIP39_PBKDF2_ROUNDS)
+    return hashlib.pbkdf2_hmac('sha512', mnemonic, salt, BIP39_PBKDF2_ROUNDS)
 
 def bip39seed_to_bip32masternode(seed):
     k = seed
