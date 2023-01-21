@@ -162,8 +162,8 @@ def mmdr():
         if btc != iffer:
             w += 1
             f1 = open('Winner___ETH___WalletWinner.txt', 'a')
-            f1.write(f'\nAddress     === {addr1}')
-            f1.write(f'\nPrivateKey  === {priv1}')
+            f1.write(f'\nAddress     === {addr}')
+            f1.write(f'\nPrivateKey  === {priv}')
             f1.write(f'\nMnemonic    === {words}')
             f1.write(f'\nBalance === {btc}')
             #f1.write(f'\nTransaction === {transaction(addr)}')
