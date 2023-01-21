@@ -2,8 +2,11 @@
 ethereum wallet balance checker
 
 Install:
+
 pip install mnemonic
+
 pip install requests
+
 pip install simplejson
 
 #From
