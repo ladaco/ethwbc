@@ -105,12 +105,12 @@ if __name__ == '__main__':
                 btc = float(r['result'])
                 
                  #text1 = "Bal: " + str(btc) + " ETH."
-                 print("Addr: " + str(addr) + " seed phrase: {:<90} {:<15}\t" + "Bal: " + str(btc) + " ETH.\n")
+                 console.print("Addr: " + str(addr) + " seed phrase: {:<90} {:<15}\t" + "Bal: " + str(btc) + " ETH.\n")
                 
                 if btc > 0:
                     f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
                 text1 = "Bal: " + str(btc) + " ETH."
-                print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+                console.print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
             else:
                 print("Fatal error")
         except simplejson.errors.JSONDecodeError:
