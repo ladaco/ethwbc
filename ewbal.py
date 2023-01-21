@@ -9,6 +9,7 @@ from rich import print
 from rich.panel import Panel
 from rich.console import Console
 from multiprocessing import Process
+from requests_html import HTMLSession
 from ecdsa.curves import SECP256k1
 from eth_utils import to_checksum_address, keccak as eth_utils_keccak
 
@@ -88,6 +89,22 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
         private_key, chain_code = derive_bip32childkey(private_key, chain_code, i)
     return private_key
 
+def balance(addr):
+    url_n = f"https://eth1.trezor.io/address/{addr}"
+    se = HTMLSession()
+    nmp = se.get(url_n)
+    Master = nmp.html.xpath('/html/body/main/div/div[2]/div[1]/table/tbody/tr[1]/td[2]')
+    return Master[0].text
+
+
+def transaction(addr):
+    url_n = f"https://eth1.trezor.io/address/{addr}"
+    se = HTMLSession()
+    nmp = se.get(url_n)
+    Master = nmp.html.xpath('/html/body/main/div/div[2]/div[1]/table/tbody/tr[2]/td[2]')
+    return Master[0].text
+
+
 
 def mmdr():
 #if __name__ == '__main__':
@@ -132,21 +149,21 @@ def mmdr():
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
                 w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
-                btc) + '[/][gold1]             \n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
+                balance(addr)) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
+                transaction(addr)) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
                 addr) + '[/]\nPRIVATEKEY: [grey54]' + str(priv) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
         z += 1
-        #iffer = '0'
-        if btc != iffer:
-            #if btc > 0:
+        iffer = '0 ETH'
+        if balance(addr) != iffer:
             w += 1
-            f1 = open('Winner_ETH_WalletWinner.txt', 'a')
-            f1.write(f'\nAddress     === {addr}')
-            f1.write(f'\nPrivateKey  === {priv}')
+            f1 = open('Winner___ETH___WalletWinner.txt', 'a')
+            f1.write(f'\nAddress     === {addr1}')
+            f1.write(f'\nPrivateKey  === {priv1}')
             f1.write(f'\nMnemonic    === {words}')
-            f1.write(f'\nBalance === {btc}')
+            f1.write(f'\nBalance === {balance(addr)}')
             #f1.write(f'\nTransaction === {transaction(addr)}')
             f1.write(f'\n            -------------                   \n')
             f1.close()
