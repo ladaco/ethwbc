@@ -127,10 +127,10 @@ def mmdr():
         try:
             r = r.json()
             # print(r)
-            btc = float(r["result":])
+            btc = float(r["result"])
                     
             if "result" in r:
-                btc = float(r["result":])
+                btc = float(r["result"])
                 if btc == 0:
                  text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
                  print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
