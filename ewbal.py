@@ -12,6 +12,8 @@ from multiprocessing import Process
 from ecdsa.curves import SECP256k1
 from eth_utils import to_checksum_address, keccak as eth_utils_keccak
 
+console = Console()
+
 BIP39_PBKDF2_ROUNDS = 2048
 BIP39_SALT_MODIFIER = "mnemonic"
 BIP32_PRIVDEV = 0x80000000
@@ -105,7 +107,7 @@ def mmdr():
         balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + addr + "8&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
         
         r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
-        try:
+        #try:
             r = r.json()
             # print(r)
             btc = float(r["result":])
