@@ -107,12 +107,8 @@ def mmdr():
         balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + addr + "8&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
         
         r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
-        #try:
-            r = r.json()
-            # print(r)
-            btc = float(r["result":])
-            
-             MmPanel = str(
+        
+        MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
                 w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
@@ -121,11 +117,13 @@ def mmdr():
         style = "gold1 on grey11"
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
-        
-        z += 1
+        try:
+            r = r.json()
+            # print(r)
+            btc = float(r["result":])
                     
             if "result" in r:
-                btc = float(r['result'])
+                btc = float(r["result":])
                 if btc == 0:
                  text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
                  print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
