@@ -120,14 +120,14 @@ def mmdr():
         addr = '0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85'
         priv = private_key
         words = mnemonic_words
-        
+        #https://api.bscscan.com/api?module=account&action=balance&address=0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8
         balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + str(addr) + "8&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
         
         r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
 
         try:
             r = r.json()
-            print(r)
+            print(balance_url)
             btc = float(r["result"])
             #print("" + str(btc) + "")
                     
