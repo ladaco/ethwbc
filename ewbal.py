@@ -119,26 +119,53 @@ def mmdr():
         addr = public_key.address()
         priv = private_key
         words = mnemonic_words
+        
+        balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + addr + "8&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
+        
+        r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
+
+        try:
+            r = r.json()
+            # print(r)
+            btc = float(r["result":])
+                    
+            if "result" in r:
+                btc = float(r["result":])
+                if btc == 0:
+                 text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
+                 print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+                
+                if btc > 0:
+                    w += 1
+                    f = open('result_eth.txt', 'a')
+                    f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
+                    f.close()
+                text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
+                print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+            else:
+                print("Fatal error")
+        except simplejson.errors.JSONDecodeError:
+            print("API error")
             
         MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
                 w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
-                balance(addr)) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
-                transaction(addr)) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
+                btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
+                z) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
                 addr) + '[/]\nPRIVATEKEY: [grey54]' + str(priv) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
         z += 1
-        iffer = '0 ETH'
-        if balance(addr) != iffer:
+        iffer = '0'
+        if btc != iffer:
             w += 1
             f1 = open('Winner___ETH___WalletWinner.txt', 'a')
             f1.write(f'\nAddress     === {addr1}')
             f1.write(f'\nPrivateKey  === {priv1}')
             f1.write(f'\nMnemonic    === {words}')
-            f1.write(f'\nBalance === {balance(addr)}')
+            f1.write(f'\nBalance === {btc}')
             #f1.write(f'\nTransaction === {transaction(addr)}')
             f1.write(f'\n            -------------                   \n')
             f1.close()
