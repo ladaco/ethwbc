@@ -90,7 +90,7 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
 
 
 def mmdr():
-if __name__ == '__main__':
+#if __name__ == '__main__':
     z = 0
     w = 0
     #f = open('result_eth.txt', 'a')
@@ -123,10 +123,11 @@ if __name__ == '__main__':
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
         z += 1
-        iffer = '0 ETH'
-        if balance(addr) != iffer:
+        #iffer = '0 ETH'
+        #f balance(addr) != iffer:
+            if btc != 0:
             w += 1
-            f1 = open('Winner___ETH___WalletWinner.txt', 'a')
+            f1 = open('Winner_ETH_WalletWinner.txt', 'a')
             f1.write(f'\nAddress     === {addr}')
             f1.write(f'\nPrivateKey  === {priv}')
             f1.write(f'\nMnemonic    === {words}')
