@@ -131,7 +131,7 @@ def mmdr():
                     
             if "result" in r:
                 btc = float(r["result"])
-                if btc == 0:
+                if btc == 0.0:
                  text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
                  print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
                 
@@ -158,7 +158,7 @@ def mmdr():
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
         z += 1
-        iffer = '0'
+        iffer = '0.0'
         if btc != iffer:
             w += 1
             f1 = open('Winner___ETH___WalletWinner.txt', 'a')
