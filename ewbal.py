@@ -89,10 +89,11 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
     return private_key
 
 
-def mmdr():
+#def mmdr():
+if __name__ == '__main__':
     z = 0
     w = 0
-    f = open('result_eth.txt', 'a')
+    #f = open('result_eth.txt', 'a')
     mobj = mnemonic.Mnemonic("english")
     while True:
         mnemonic_words = mobj.generate(strength=128)
@@ -130,7 +131,9 @@ def mmdr():
                 
                 if btc > 0:
                     w += 1
+                    f = open('result_eth.txt', 'a')
                     f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
+                    f.close()
                 text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
                 print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
             else:
@@ -138,10 +141,6 @@ def mmdr():
         except simplejson.errors.JSONDecodeError:
             print("API error")
             
-mmdr()
             
-if __name__ == '__main__':
-        for i in range(len(add)):
-        p = multiprocessing.Process(target=mmdr)
-        p.start()
-        p.join()
+            
+#mmdr()
