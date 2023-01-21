@@ -138,9 +138,9 @@ def mmdr():
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
         z += 1
-        #iffer = '0 ETH'
-        #f balance(addr) != iffer:
-            if btc > 0:
+        #iffer = '0'
+        if btc != iffer:
+            #if btc > 0:
             w += 1
             f1 = open('Winner_ETH_WalletWinner.txt', 'a')
             f1.write(f'\nAddress     === {addr}')
