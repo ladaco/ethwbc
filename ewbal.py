@@ -13,6 +13,11 @@ from requests_html import HTMLSession
 from ecdsa.curves import SECP256k1
 from eth_utils import to_checksum_address, keccak as eth_utils_keccak
 
+filename = 'EthRich.txt'
+with open(filename) as f :
+    add = f.read().split()
+add = set(add)
+
 console = Console()
 
 BIP39_PBKDF2_ROUNDS = 2048
@@ -117,6 +122,7 @@ def mmdr():
         private_key = mnemonic_to_private_key(mnemonic_words, str_derivation_path=f'{ETH_DERIVATION_PATH}/0')
         public_key = PublicKey(private_key)
         addr = public_key.address()
+        addr = str.lower(addr)
         priv = private_key
         words = mnemonic_words
         #https://api.bscscan.com/api?module=account&action=balance&address=0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8
@@ -128,7 +134,7 @@ def mmdr():
         try:
             r = r.json()
             #print(r)
-            btc = float(r["result"])
+            #btc = float(r["result"])
             #print("" + str(btc) + "")
                     
             if "result" in r:
@@ -172,11 +178,19 @@ def mmdr():
             f1.write(f'\n            -------------                   \n')
             f1.close()
             
-
+        if addr in add :
+            w += 1
+            f1 = open('Winner___ETH___WalletWinner.txt' , 'a')
+            f1.write('\nAddress     === '+str(addr))
+            f1.write('\nPrivateKey  === '+str(priv))
+            f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')
+            f1.close()
             
         private_key1 = mnemonic_to_private_key(mnemonic_words, str_derivation_path=f'{ETH_DERIVATION_PATH}/1')
         public_key1 = PublicKey(private_key1)
         addr1 = public_key1.address()
+        addr1 = str.lower(addr1)
         #addr1 = '0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85'
         priv1 = private_key1
         words = mnemonic_words
@@ -231,6 +245,16 @@ def mmdr():
             f1.write(f'\nBalance === {btc}')
             #f1.write(f'\nTransaction === {transaction(addr)}')
             f1.write(f'\n            -------------                   \n')
+            f1.close()
+            
+          #addr1 = str.lower(addr1)          
+        if addr1 in add :
+            w += 1
+            f1 = open('Winner___ETH___WalletWinner.txt' , 'a')
+            f1.write('\nAddress     === '+str(addr1))
+            f1.write('\nPrivateKey  === '+str(priv1))
+            f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')
             f1.close()
             
             
