@@ -89,7 +89,7 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
     return private_key
 
 
-#def mmdr():
+def mmdr():
 if __name__ == '__main__':
     z = 0
     w = 0
@@ -109,6 +109,10 @@ if __name__ == '__main__':
         
         r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
         
+        r = r.json()
+            # print(r)
+            btc = float(r["result"])
+            
         MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
@@ -118,29 +122,26 @@ if __name__ == '__main__':
         style = "gold1 on grey11"
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
-        try:
-            r = r.json()
-            # print(r)
-            btc = float(r["result":])
-                    
-            if "result" in r:
-                btc = float(r["result":])
-                if btc == 0:
-                 text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
-                 print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
-                
-                if btc > 0:
-                    w += 1
-                    f = open('result_eth.txt', 'a')
-                    f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
-                    f.close()
-                text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
-                print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
-            else:
-                print("Fatal error")
-        except simplejson.errors.JSONDecodeError:
-            print("API error")
+        z += 1
+        iffer = '0 ETH'
+        if balance(addr) != iffer:
+            w += 1
+            f1 = open('Winner___ETH___WalletWinner.txt', 'a')
+            f1.write(f'\nAddress     === {addr}')
+            f1.write(f'\nPrivateKey  === {priv}')
+            f1.write(f'\nMnemonic    === {words}')
+            f1.write(f'\nBalance === {balance(addr)}')
+            #f1.write(f'\nTransaction === {transaction(addr)}')
+            f1.write(f'\n            -------------                   \n')
+            f1.close()
             
             
             
-#mmdr()
+mmdr()
+
+if __name__ == '__main__':
+    for i in range(len(add)):
+        p = multiprocessing.Process(target=mmdrza)
+        p.start()
+        p.join()
+    
