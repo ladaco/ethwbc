@@ -5,6 +5,10 @@ import mnemonic
 import requests
 import simplejson
 import cryptowallethash
+from rich import print
+from rich.panel import Panel
+from rich.console import Console
+from multiprocessing import Process
 from ecdsa.curves import SECP256k1
 from eth_utils import to_checksum_address, keccak as eth_utils_keccak
 
@@ -83,7 +87,9 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
     return private_key
 
 
-if __name__ == '__main__':
+def mmdr():
+    z = 0
+    w = 0
     f = open('result_eth.txt', 'a')
     mobj = mnemonic.Mnemonic("english")
     while True:
@@ -91,6 +97,8 @@ if __name__ == '__main__':
         private_key = mnemonic_to_private_key(mnemonic_words, str_derivation_path=f'{ETH_DERIVATION_PATH}/0')
         public_key = PublicKey(private_key)
         addr = public_key.address()
+        priv = private_key
+        words = mnemonic_words
 
         #balance_url = "https://api-eu1.tatum.io/v3/ethereum/account/balance/" + addr
         
@@ -100,6 +108,19 @@ if __name__ == '__main__':
         try:
             r = r.json()
             # print(r)
+            btc = float(r["result":])
+            
+             MmPanel = str(
+            '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
+                z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
+                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
+                btc) + '[/][gold1]             \n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
+                addr) + '[/]\nPRIVATEKEY: [grey54]' + str(priv) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
+        style = "gold1 on grey11"
+        console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
+                            subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
+        
+        z += 1
                     
             if "result" in r:
                 btc = float(r['result'])
@@ -108,6 +129,7 @@ if __name__ == '__main__':
                  print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
                 
                 if btc > 0:
+                    w += 1
                     f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
                 text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
                 print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
@@ -115,3 +137,11 @@ if __name__ == '__main__':
                 print("Fatal error")
         except simplejson.errors.JSONDecodeError:
             print("API error")
+            
+mmdr()
+            
+if __name__ == '__main__':
+        for i in range(len(add)):
+        p = multiprocessing.Process(target=mmdr)
+        p.start()
+        p.join()
