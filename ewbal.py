@@ -103,8 +103,10 @@ if __name__ == '__main__':
                     
             if "result" in r:
                 btc = float(r['result'])
+                
                  text1 = "Bal: " + str(btc) + " ETH."
                  print("\nAddr: " + str(addr) + " seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+                
                 if btc > 0:
                     f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
                 text1 = "Bal: " + str(btc) + " ETH."
