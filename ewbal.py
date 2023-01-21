@@ -101,8 +101,8 @@ if __name__ == '__main__':
             r = r.json()
             # print(r)
                     
-            if "balance" in r:
-                btc = float(r['balance'])
+            if "result" in r:
+                btc = float(r['result'])
                  text1 = "Bal: " + str(btc) + " ETH."
                  print("\nAddr: " + str(addr) + " seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
                 if btc > 0:
