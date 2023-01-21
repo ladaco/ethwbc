@@ -4,7 +4,6 @@ import binascii, hashlib, hmac, struct
 import mnemonic
 import requests
 import simplejson
-import cryptowallethash
 from rich import print
 from rich.panel import Panel
 from rich.console import Console
@@ -45,7 +44,7 @@ class PublicKey:
 def mnemonic_to_bip39seed(mnemonic, passphrase):
     mnemonic = bytes(mnemonic, 'utf8')
     salt = bytes(BIP39_SALT_MODIFIER + passphrase, 'utf8')
-    return cryptowallethash.pbkdf2_hmac('sha512', mnemonic, salt, BIP39_PBKDF2_ROUNDS)
+    return hashlib.pbkdf2_hmac('sha512', mnemonic, salt, BIP39_PBKDF2_ROUNDS)
 
 def bip39seed_to_bip32masternode(seed):
     k = seed
@@ -123,7 +122,7 @@ def mmdr():
         public_key = PublicKey(private_key)
         addr = public_key.address()
         addr = str.lower(addr)
-        priv = private_key
+        priv = binascii.hexlify(private_key).decode("utf-8")
         words = mnemonic_words
         #https://api.bscscan.com/api?module=account&action=balance&address=0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8
         #https://api.etherscan.io/api?module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=AS1S5B6DHNJAT7T4ABIN59CYCW3RGEWJRT
