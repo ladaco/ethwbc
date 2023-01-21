@@ -114,6 +114,7 @@ def mmdr():
 #if __name__ == '__main__':
     z = 0
     w = 0
+    m = 0
     #f = open('result_eth.txt', 'a')
     mobj = mnemonic.Mnemonic("english")
     while True:
@@ -159,11 +160,13 @@ def mmdr():
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
                 w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
                 btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
-                z) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
+                m) + '\n[/][gold1 on grey15]Addr0: ' + '[white] ' + str(
                 addr) + '[/]\nPRIVATEKEY: [grey54]' + str(priv) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
                             subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
+
+        m += 1
         z += 1
         iffer = 0.0
         if btc > iffer:
@@ -228,7 +231,7 @@ def mmdr():
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
                 w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
                 btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
-                z) + '\n[/][gold1 on grey15]Addr1: ' + '[white] ' + str(
+                m) + '\n[/][gold1 on grey15]Addr1: ' + '[white] ' + str(
                 addr1) + '[/]\nPRIVATEKEY: [grey54]' + str(priv1) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
         console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V4[/]",
