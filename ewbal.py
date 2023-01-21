@@ -14,8 +14,8 @@ from ecdsa.curves import SECP256k1
 from eth_utils import to_checksum_address, keccak as eth_utils_keccak
 
 filename = 'EthRich.txt'
-with open(filename) as f :
-    add = f.read().split()
+with open(filename) as f0 :
+    add = f0.read().split()
 add = set(add)
 
 console = Console()
