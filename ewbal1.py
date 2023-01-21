@@ -172,6 +172,66 @@ def mmdr():
             f1.write(f'\n            -------------                   \n')
             f1.close()
             
+
+            
+        private_key1 = mnemonic_to_private_key(mnemonic_words, str_derivation_path=f'{ETH_DERIVATION_PATH}/1')
+        public_key1 = PublicKey(private_key1)
+        addr1 = public_key1.address()
+        addr1 = '0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85'
+        priv1 = private_key1
+        words = mnemonic_words
+        #https://api.bscscan.com/api?module=account&action=balance&address=0x0000b07FCf8ED4F6D7E1411e2d47d8742B9Aba85&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8
+        #https://api.etherscan.io/api?module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=AS1S5B6DHNJAT7T4ABIN59CYCW3RGEWJRT
+        balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + str(addr1) + "&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
+        
+        r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
+
+        try:
+            r = r.json()
+            #print(r)
+            #btc = float(r["result"])
+            #print("" + str(btc) + "")
+                    
+            if "result" in r:
+                btc = float(r["result"])
+                #if btc == 0.0:
+                 #text1 = "Addr: " + str(addr) + " Bal: " + str(btc) + " ETH."
+                 #print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+                
+                if btc > 0:
+                    w += 1
+                    f = open('result_eth.txt', 'a')
+                    f.write("seed phrase: " + mnemonic_words + "\t" + "Bal: " + str(btc) + " ETH.\n")
+                    f.close()
+                text1 = "Addr1: " + str(addr1) + " Bal: " + str(btc) + " ETH."
+                print("seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+            else:
+                print("Fatal error")
+        except simplejson.errors.JSONDecodeError:
+            print("API error")
+            
+        MmPanel = str(
+            '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
+                z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
+                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
+                btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
+                z) + '\n[/][gold1 on grey15]Addr1: ' + '[white] ' + str(
+                addr1) + '[/]\nPRIVATEKEY: [grey54]' + str(priv1) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
+        style = "gold1 on grey11"
+        console.print(Panel(str(MmPanel), title="[white]Ethereum Mnemonic Checker V4[/]",
+                            subtitle="[green_yellow blink] Ladaco.info [/]", style="green"), style=style, justify="full")
+        z += 1
+        iffer = 0.0
+        if btc > iffer:
+            w += 1
+            f1 = open('Winner___ETH___WalletWinner.txt', 'a')
+            f1.write(f'\nAddress     === {addr1}')
+            f1.write(f'\nPrivateKey  === {priv1}')
+            f1.write(f'\nMnemonic    === {words}')
+            f1.write(f'\nBalance === {btc}')
+            #f1.write(f'\nTransaction === {transaction(addr)}')
+            f1.write(f'\n            -------------                   \n')
+            f1.close()
             
             
 mmdr()
