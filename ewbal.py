@@ -90,13 +90,18 @@ if __name__ == '__main__':
         mnemonic_words = mobj.generate(strength=128)
         private_key = mnemonic_to_private_key(mnemonic_words, str_derivation_path=f'{ETH_DERIVATION_PATH}/0')
         public_key = PublicKey(private_key)
+        addr = public_key.address()
 
-        balance_url = "https://api-eu1.tatum.io/v3/ethereum/account/balance/" + public_key.address()
+        #balance_url = "https://api-eu1.tatum.io/v3/ethereum/account/balance/" + addr
         
-        r = requests.get(balance_url, headers={"x-api-key":"55546c04-d5ee-4304-8053-50053377835f"})
+        balance_url = "https://api.bscscan.com/api?module=account&action=balance&address=" + addr + "8&apikey=6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"
+        
+        r = requests.get(balance_url, headers={"x-api-key":"6FBCS9ED62AAAB1J6KYBB8TWSB4CFSXAK8"})
         try:
             r = r.json()
             # print(r)
+                 print("\nAddr: " .addr." seed phrase: {:<90} {:<15}".format(mnemonic_words, text1))
+                    
             if "balance" in r:
                 btc = float(r['balance'])
                 if btc > 0:
