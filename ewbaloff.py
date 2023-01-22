@@ -115,8 +115,7 @@ def mmdr():
         MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
-                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
-                btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
+                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + '0ff' + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
                 m) + '\n[/][gold1 on grey15]Addr0: ' + '[white] ' + str(
                 addr) + '[/]\nPRIVATEKEY: [grey54]' + str(priv) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
@@ -154,8 +153,7 @@ def mmdr():
         MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
-                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
-                btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
+                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + '0ff' + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
                 m) + '\n[/][gold1 on grey15]Addr1: ' + '[white] ' + str(
                 addr1) + '[/]\nPRIVATEKEY: [grey54]' + str(priv1) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
@@ -184,8 +182,7 @@ def mmdr():
         MmPanel = str(
             '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
                 z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
-                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
-                btc) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
+                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + '0ff' + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
                 m) + '\n[/][gold1 on grey15]Addr2: ' + '[white] ' + str(
                 addr2) + '[/]\nPRIVATEKEY: [grey54]' + str(priv2) + '[/]\nMNEMONIC: [grey54]'+str(words)+'[/]')
         style = "gold1 on grey11"
