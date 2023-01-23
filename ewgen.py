@@ -93,7 +93,7 @@ def seek():
         privatekey = priv.to_string().hex()
         
         if i == 1000 :
-        ethaddr ='0x07ee55aa48bb72dcc6e9d78256648910de513eca'
+            ethaddr ='0x07ee55aa48bb72dcc6e9d78256648910de513eca'
         #print('\n\n--------------------------------')
         print('Win: '+str(w)+' '+str(i)+' Address:  ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
         addr = str.lower(ethadd)          
