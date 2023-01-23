@@ -14,7 +14,7 @@ start=time.time()
 def seek():
     i=1
     w = 0
-    while (i<=500000):
+    while (i<=5000000):
         tm=time.time()-start
         c1 = str (random.choice('0123456789abcdef'))
         c2 = str (random.choice('0123456789abcdef'))
@@ -92,14 +92,17 @@ def seek():
         ethadd = '0x'+ kec
         privatekey = priv.to_string().hex()
         
-        if i==1000 :
-            ethadd ='0x07ee55aa48bb72dcc6e9d78256648910de513eca'
+        f=open("ethKey.txx","a")
+        f.write(''+privatekey+'\n')
+        f.close()
+        #if i==1000 :
+            #ethadd ='0x07ee55aa48bb72dcc6e9d78256648910de513eca'
         #print('\n\n--------------------------------')
-        print('Win: '+str(w)+' '+str(i)+' Address:  ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
+        print('Win: '+str(w)+'/'+str(i)+' Addr:  ',ethadd,'  Priv Key:  ',priv.to_string().hex(),'\n')
         addr = str.lower(ethadd)          
         if addr in add :
             w += 1
-            print('Winner: '+str(w)+' '+str(i)+' Address: ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
+            print('Winner: '+str(w)+'/'+str(i)+' Addr: ',ethadd,'  Priv Key:  ',priv.to_string().hex(),'\n')
             f1 = open('Winner__ETH__WalletWinner.txt' , 'a')
             f1.write('\nAddress     === '+str(addr))
             f1.write('\nPrivateKey  === '+str(privatekey))
