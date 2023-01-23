@@ -4,10 +4,16 @@ import sha3 #from pysha3
 import random
 import time
 
+filename = 'EthRich.txt'
+with open(filename) as fw :
+    add = fw.read().split()
+add = set(add)
+
 start=time.time()
 
 def seek():
     i=1
+    w = 0
     while (i<=500000):
         tm=time.time()-start
         c1 = str (random.choice('0123456789abcdef'))
@@ -86,14 +92,28 @@ def seek():
         ethadd = '0x'+ kec
         privatekey = priv.to_string().hex()
 
-        print('\n\n--------------------------------')
-        print('\n'+str(i)+'  Private Key:  ',priv.to_string().hex(),'\n'+str(i)+' Address:  ',ethadd)
-        f=open("ethKey.tx","a")
-        f.write(str(i)+' - '+privatekey+'\n')
-        f.close()
-        f=open("ethAdd.txt","a")
-        f.write(str(i)+' - '+ethadd+'\n')
-        f.close()
+        #print('\n\n--------------------------------')
+        print('\n'+str(i)+' Address:  ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
+        addr = str.lower(ethadd)          
+        if addr in add :
+            w += 1
+            print('\nWinner: '+str(w)+' '+str(i)+' Address: ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
+            f1 = open('Winner__ETH__WalletWinner.txt' , 'a')
+            f1.write('\nAddress     === '+str(addr))
+            f1.write('\nPrivateKey  === '+str(privatekey))
+            #f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')
+            f1.close()  
+        
+        
+        #f=open("ethKey.tx","a")
+        #f.write(str(i)+' - '+privatekey+'\n')
+        #f.close()
+        #f=open("ethAdd.txt","a")
+        #f.write(str(i)+' - '+ethadd+'\n')
+        #f.close()
+        
+        
         i = i+1
         time.sleep(0)
         print("Total Time For Genereted = %s"%tm)
