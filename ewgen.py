@@ -91,13 +91,15 @@ def seek():
         kec = keccak.hexdigest()[24:]
         ethadd = '0x'+ kec
         privatekey = priv.to_string().hex()
-
+        
+        if i == 1000 :
+        ethaddr ='0x07ee55aa48bb72dcc6e9d78256648910de513eca'
         #print('\n\n--------------------------------')
-        print('\n'+str(i)+' Address:  ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
+        print('Win: '+str(w)+' '+str(i)+' Address:  ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
         addr = str.lower(ethadd)          
         if addr in add :
             w += 1
-            print('\nWinner: '+str(w)+' '+str(i)+' Address: ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
+            print('Winner: '+str(w)+' '+str(i)+' Address: ',ethadd,'  Private Key:  ',priv.to_string().hex(),'\n')
             f1 = open('Winner__ETH__WalletWinner.txt' , 'a')
             f1.write('\nAddress     === '+str(addr))
             f1.write('\nPrivateKey  === '+str(privatekey))
