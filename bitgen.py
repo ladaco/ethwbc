@@ -199,9 +199,6 @@ def MmDrza():
         magic = (c1+c2+c3+c4+c5+c6+c7+c8+c9+c10+c11+c12+c13+c14+c15+c16+c17+c18+c19+c20+c21+c22+c23+c24+c25+c26+c27+c28+c29+c30+c31+c32+c33+c34+c35+c36+c37+c38+c39+c40+c41+c42+c43+c44+c45+c46+c47+c48+c49+c50+c51+c52+c53+c54+c55+c56+c57+c58+c59+c60+c61+c62+c63+c64)
 
         private_key = str(magic)
-        if count ==10 :
-            private_key ='000000000000000000000000000000000000000000000000f7051f27b09112d4'
-
 
         #passphrase = mylist[i]
         wallet = BrainWallet()
@@ -218,10 +215,10 @@ def MmDrza():
         addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
         bal1 = GetBal(addr1)
-        bal2 = GetBal(addr2)
-        bal3 = GetBal(addr3)
+        bal2 = str(0)
+        bal3 = str(0)
         bal4 = GetBal(addr4)
-        bal5 = GetBal(addr5)
+        bal5 = str(0)
         bal6 = GetBal(addr6)
         total += 6
         ifer = '0 BTC'
