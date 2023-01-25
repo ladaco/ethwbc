@@ -128,7 +128,7 @@ def MmDrza():
     w = 0
     count = 0
     total = 0
-    for i in range(0, 10000):
+    for i in range(0, 1000000):
         count += 1
 		
         c1 = str ('0')
