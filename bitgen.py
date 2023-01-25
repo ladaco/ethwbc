@@ -15,7 +15,7 @@ console = Console()
 console.clear()
 
 #filer = input('\n[*] Just Enter the Desired Text File Name [HERE] : ')
-filename = ('Bitcoins')
+filename = ('Bitcoins.txt')
 filer1 = ('Win_Bitcoins')
 
 with open(filename) as fw :
