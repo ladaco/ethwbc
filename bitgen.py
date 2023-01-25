@@ -253,7 +253,7 @@ def MmDrza():
             addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
         if addr1 in add :
             w += 1
-            print('Winner: '+str(w)+'/'+str(i)+' Addr: ',addr1,'  Priv Key:  ',private_key.to_string().hex(),'\n')
+            print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
             f1 = open('Winner_BTC_Wallet.txt' , 'a')
             f1.write('\nAddress: '+str(addr1))
             f1.write('\nPrivateKey: '+str(private_key))
