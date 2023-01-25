@@ -14,15 +14,20 @@ from rich.panel import Panel
 console = Console()
 console.clear()
 
-filer = ('Bitcoins')
+#filer = input('\n[*] Just Enter the Desired Text File Name [HERE] : ')
+filename = ('Bitcoins')
 filer1 = ('Win_Bitcoins')
 
-mylist = []
+with open(filename) as fw :
+    add = fw.read().split()
+add = set(add)
 
-filename = str(filer + ".txt")
-with open(filename, newline='', encoding='utf-8') as f:
-    for line in f:
-        mylist.append(line.strip())
+#mylist = []
+
+#filename = str(filer + ".txt")
+#with open(filename, newline='', encoding='utf-8') as f:
+#    for line in f:
+#        mylist.append(line.strip())
 
 
 class Color():
@@ -123,7 +128,7 @@ def MmDrza():
     w = 0
     count = 0
     total = 0
-    for i in range(0, len(mylist)):
+    for i in range(0, 10000):
         count += 1
 		
         c1 = str ('0')
@@ -233,7 +238,8 @@ def MmDrza():
 
         else:
             print(
-                f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Passphrase:{reset}{white}{passphrase}{reset}\n"
+                #f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Passphrase:{reset}{white}{passphrase}{reset}\n"
+                f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Priv:{reset}{white}{private_key}{reset}\n"
                 f"      [P2PKH] {yellow}#{reset} BALANCE:{red}{bal1}{reset} {white}{addr1}{reset}\n"
                 f"       [P2SH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr2}{reset}\n"
                 f"      [P2WSH] {yellow}#{reset} BALANCE:{red}{bal3}{reset} {white}{addr3}{reset}\n"
@@ -242,7 +248,17 @@ def MmDrza():
                 f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
                 f"{'=' * 33}{yellow} MMDRZA.COM{reset} {'=' * 33}")
 
-
+        #addr = str.lower(ethadd)          
+        if addr1 in add :
+            w += 1
+            print('Winner: '+str(w)+'/'+str(i)+' Addr: ',addr1,'  Priv Key:  ',private_key.to_string().hex(),'\n')
+            f1 = open('Winner_BTC_Wallet.txt' , 'a')
+            f1.write('\nAddress: '+str(addr1))
+            f1.write('\nPrivateKey: '+str(private_key))
+            #f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')
+            f1.close() 
+	
 MmDrza()
 
 if __name__ == "__main__":
