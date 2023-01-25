@@ -200,7 +200,7 @@ def MmDrza():
 
         private_key = str(magic)
         if count ==10 :
-            private_key ='000000000000000000000000000000000000000000000000f7051f27b09112d4'
+            private_key ='000000000000000000000000000000000000000000000001a838B13505b26867'
 
 
         #passphrase = mylist[i]
@@ -218,22 +218,22 @@ def MmDrza():
         addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
         bal1 = GetBal(addr1)
-        bal2 = GetBal(addr2)
-        bal3 = GetBal(addr3)
+        #bal2 = GetBal(addr2)
+        #bal3 = GetBal(addr3)
         bal4 = GetBal(addr4)
-        bal5 = GetBal(addr5)
+        #bal5 = GetBal(addr5)
         bal6 = GetBal(addr6)
         total += 6
         ifer = '0 BTC'
         printer = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
-                  f"[A] P2SH            : {addr2} # Balance:{bal2}\n" \
-                  f"[A] P2WSH           : {addr3} # Balance:{bal3}\n" \
+                  #f"[A] P2SH            : {addr2} # Balance:{bal2}\n" \
+                  #f"[A] P2WSH           : {addr3} # Balance:{bal3}\n" \
                   f"[A] P2WPKH          : {addr4} # Balance:{bal4}\n" \
-                  f"[A] P2WSH COMPRESS  : {addr5} # Balance:{bal5}\n" \
+                  #f"[A] P2WSH COMPRESS  : {addr5} # Balance:{bal5}\n" \
                   f"[A] P2WPKH COMPRESS : {addr6} # Balance:{bal6}\n" \
                   f"[P] PRIVATE KEY : {private_key}\n" \
                   f"{'=' * 26} MMDRZA.COM {'=' * 26}\n"
-        if bal1 != ifer or bal2 != ifer or bal3 != ifer or bal4 != ifer or bal5 != ifer or bal6 != ifer:
+        if bal1 != ifer or bal4 != ifer or bal6 != ifer:
             w += 1
             with open(f"{filer1}.txt", "a", encoding="utf-8", errors="ignore") as pf:
                 pf.write(printer).close()
@@ -243,10 +243,10 @@ def MmDrza():
                 #f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Passphrase:{reset}{white}{passphrase}{reset}\n"
                 f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Priv:{reset}{white}{private_key}{reset}\n"
                 f"      [P2PKH] {yellow}#{reset} BALANCE:{red}{bal1}{reset} {white}{addr1}{reset}\n"
-                f"       [P2SH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr2}{reset}\n"
-                f"      [P2WSH] {yellow}#{reset} BALANCE:{red}{bal3}{reset} {white}{addr3}{reset}\n"
+                #f"       [P2SH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr2}{reset}\n"
+                #f"      [P2WSH] {yellow}#{reset} BALANCE:{red}{bal3}{reset} {white}{addr3}{reset}\n"
                 f"     [P2WPKH] {yellow}#{reset} BALANCE:{red}{bal4}{reset} {white}{addr4}{reset}\n"
-                f" [P2WSH-COMP] {yellow}#{reset} BALANCE:{red}{bal5}{reset} {white}{addr5}{reset}\n"
+                #f" [P2WSH-COMP] {yellow}#{reset} BALANCE:{red}{bal5}{reset} {white}{addr5}{reset}\n"
                 f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
                 f"{'=' * 33}{yellow} MMDRZA.COM{reset} {'=' * 33}")
 
