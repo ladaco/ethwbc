@@ -248,7 +248,9 @@ def MmDrza():
                 f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
                 f"{'=' * 33}{yellow} MMDRZA.COM{reset} {'=' * 33}")
 
-        #addr = str.lower(ethadd)          
+        #addr = str.lower(ethadd)
+        if count ==10 :
+            addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
         if addr1 in add :
             w += 1
             print('Winner: '+str(w)+'/'+str(i)+' Addr: ',addr1,'  Priv Key:  ',private_key.to_string().hex(),'\n')
