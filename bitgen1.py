@@ -217,7 +217,7 @@ def MmDrza():
         addr5 = hdwallet.p2wsh_in_p2sh_address()
         addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
-        bal1 = GetBal(addr1) #bal1 = GetBal(addr1)
+        bal1 = str(0) #bal1 = GetBal(addr1)
         bal2 = str(0)
         bal3 = str(0)
         bal4 = str(0)
@@ -233,7 +233,8 @@ def MmDrza():
                   f"[A] P2WPKH COMPRESS : {addr6} # Balance:{bal6}\n" \
                   f"[P] PRIVATE KEY : {private_key}\n" \
                   f"{'=' * 26} MMDRZA.COM {'=' * 26}\n"
-        if bal1 != ifer:
+        #if bal1 != ifer:
+        if addr1 in add or addr3 in add or addr4 in add or addr6 in add :
             w += 1
             with open(f"{filer1}.txt", "a", encoding="utf-8", errors="ignore") as pf:
                 pf.write(printer).close()
@@ -253,7 +254,7 @@ def MmDrza():
         #addr = str.lower(ethadd)
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
-        if addr1 in add or addr4 in add or addr6 in add :
+        if addr1 in add :
             w += 1
             print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
             f1 = open('Winner_BTC_Wallet.txt' , 'a')
