@@ -3,6 +3,7 @@ import codecs
 import hashlib
 import threading
 import random
+import sha3 #from pysha3
 import ecdsa
 import requests
 from hdwallet import HDWallet
@@ -21,6 +22,11 @@ filer1 = ('Win_Bitcoins')
 with open(filename) as fw :
     add = fw.read().split()
 add = set(add)
+
+filenameth = 'EthRich.txt'
+with open(filenameth) as fe :
+    eadd = fe.read().split()
+eadd = set(eadd)
 
 #mylist = []
 
@@ -198,6 +204,17 @@ def MmDrza():
 
         magic = (c1+c2+c3+c4+c5+c6+c7+c8+c9+c10+c11+c12+c13+c14+c15+c16+c17+c18+c19+c20+c21+c22+c23+c24+c25+c26+c27+c28+c29+c30+c31+c32+c33+c34+c35+c36+c37+c38+c39+c40+c41+c42+c43+c44+c45+c46+c47+c48+c49+c50+c51+c52+c53+c54+c55+c56+c57+c58+c59+c60+c61+c62+c63+c64)
 
+        #eth
+	hex_priv_key = str(magic)
+        keccak = sha3.keccak_256()
+        priv = SigningKey.from_string(string=bytes.fromhex(hex_priv_key), curve=SECP256k1)
+        pub = priv.get_verifying_key().to_string()
+        keccak.update(pub)
+        kec = keccak.hexdigest()[24:]
+        ethadd = '0x'+ kec
+        addr = str.lower(ethadd)
+        privatekey = priv.to_string().hex()
+	
         private_key = str(magic)
 
         #passphrase = mylist[i]
@@ -228,6 +245,7 @@ def MmDrza():
                   f"[A] P2WPKH          : {addr4} # Balance:{bal4}\n" \
                   f"[A] P2WSH COMPRESS  : {addr5} # Balance:{bal5}\n" \
                   f"[A] P2WPKH COMPRESS : {addr6} # Balance:{bal6}\n" \
+                  f"[A] ETH             : {addr} # Balance:{bal2}\n" \
                   f"[P] PRIVATE KEY : {private_key}\n" \
                   f"{'=' * 26} MMDRZA.COM {'=' * 26}\n"
         if bal1 != ifer or bal4 != ifer or bal6 != ifer:
@@ -245,9 +263,19 @@ def MmDrza():
                 f"     [P2WPKH] {yellow}#{reset} BALANCE:{red}{bal4}{reset} {white}{addr4}{reset}\n"
                 f" [P2WSH-COMP] {yellow}#{reset} BALANCE:{red}{bal5}{reset} {white}{addr5}{reset}\n"
                 f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
+                f"        [ETH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr}{reset}\n"
                 f"{'=' * 33}{yellow} MMDRZA.COM{reset} {'=' * 33}")
 
         #addr = str.lower(ethadd)
+        if addr in eadd :
+            w += 1
+            print('Winner: '+str(w)+' Addr: ',ethadd,'  Priv Key:  ',priv.to_string().hex(),'\n')
+            f1 = open('Winner_ETH_Wallet.txt' , 'a')
+            f1.write('\nAddress     === '+str(addr))
+            f1.write('\nPrivateKey  === '+str(privatekey))
+            #f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')	
+	
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
         if addr1 in add or addr2 in add or addr3 in add or addr4 in add or addr5 in add or addr6 in add :
