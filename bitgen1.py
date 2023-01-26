@@ -128,7 +128,7 @@ def MmDrza():
     w = 0
     count = 0
     total = 0
-    for i in range(0, 1000000):
+    for i in range(0, 1000000000):
         count += 1
 		
         c1 = str ('0')
@@ -223,7 +223,7 @@ def MmDrza():
         bal4 = str(0)
         bal5 = str(0)
         bal6 = str(0)
-        total += 6
+        total += 4
         ifer = '0 BTC'
         printer = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
                   f"[A] P2SH            : {addr2} # Balance:{bal2}\n" \
