@@ -247,6 +247,7 @@ def MmDrza():
         bal4 = GetBal(addr4)
         bal5 = str(0)
         bal6 = GetBal(addr6)
+	bal = GethBal(addr)
         total += 4
         ifer = '0 BTC'
         printer = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
@@ -255,7 +256,7 @@ def MmDrza():
                   f"[A] P2WPKH          : {addr4} # Balance:{bal4}\n" \
                   f"[A] P2WSH COMPRESS  : {addr5} # Balance:{bal5}\n" \
                   f"[A] P2WPKH COMPRESS : {addr6} # Balance:{bal6}\n" \
-                  f"[A] ETH             : {addr} # Balance:{bal2}\n" \
+                  f"[A] ETH             : {addr} # Balance:{bal}\n" \
                   f"[P] PRIVATE KEY : {private_key}\n" \
                   f"{'=' * 26} ######### {'=' * 26}\n"
         if bal1 != ifer or bal4 != ifer or bal6 != ifer:
@@ -273,10 +274,10 @@ def MmDrza():
                 f"     [P2WPKH] {yellow}#{reset} BALANCE:{red}{bal4}{reset} {white}{addr4}{reset}\n"
                 f" [P2WSH-COMP] {yellow}#{reset} BALANCE:{red}{bal5}{reset} {white}{addr5}{reset}\n"
                 f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
-                f"        [ETH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr}{reset}\n"
+                f"        [ETH] {yellow}#{reset} BALANCE:{red}{bal}{reset} {white}{addr}{reset}\n"
                 f"{'=' * 33}{yellow} ######### {reset} {'=' * 33}")
 
-        bal = GethBal(addr)
+        #bal = GethBal(addr)
         printere = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
                    f"[A] ETH             : {addr} # Balance:{bal}\n" \
                    f"[P] PRIVATE KEY : {privatekey}\n" \
