@@ -281,7 +281,8 @@ def MmDrza():
         printere = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
                    f"[A] ETH             : {addr} # Balance:{bal}\n" \
                    f"[P] PRIVATE KEY : {privatekey}\n" \
-
+                   f"{'=' * 26} ######### {'=' * 26}\n"
+	
         ifere = '0 ETH'
         if bal != ifere:
             w += 1
