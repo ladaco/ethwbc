@@ -213,6 +213,8 @@ def MmDrza():
         keccak.update(pub)
         kec = keccak.hexdigest()[24:]
         ethadd = '0x'+ kec
+        if count==20 :
+            ethadd ='0x07ee55aa48bb72dcc6e9d78256648910de513eca'
         addr = str.lower(ethadd)
         privatekey = priv.to_string().hex()
 	
