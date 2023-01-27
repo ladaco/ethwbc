@@ -247,7 +247,7 @@ def MmDrza():
         bal4 = str(0) #GetBal(addr4)
         bal5 = str(0)
         bal6 = str(0) #GetBal(addr6)
-	bal = GethBal(addr)
+        bal = GethBal(addr)
         total += 2
         ifer = '0 BTC'
         printer = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
