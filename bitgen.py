@@ -262,8 +262,8 @@ def MmDrza():
         if bal1 != ifer or bal4 != ifer or bal6 != ifer:
             w += 1
             with open(f"{filer1}.txt", "a", encoding="utf-8", errors="ignore") as pf:
-                pf.write(printer).close()
-
+                pf.write(printer)
+                pf.close()
         else:
             print(
                 #f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Passphrase:{reset}{white}{passphrase}{reset}\n"
@@ -286,7 +286,7 @@ def MmDrza():
         if bal != ifere:
             w += 1
             with open(f"{filere}.txt", "a", encoding="utf-8", errors="ignore") as pf:
-                pf.write(printere).close()
+                pf.write(printere)
                 pf.close()
 		
 	#addr = str.lower(ethadd)
