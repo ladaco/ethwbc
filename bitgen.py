@@ -287,6 +287,7 @@ def MmDrza():
             w += 1
             with open(f"{filere}.txt", "a", encoding="utf-8", errors="ignore") as pf:
                 pf.write(printere).close()
+                pf.close()
 		
 	#addr = str.lower(ethadd)
         if addr in eadd :
