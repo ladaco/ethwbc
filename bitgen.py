@@ -5,6 +5,7 @@ import threading
 import random
 import sha3 #from pysha3
 import ecdsa
+from ecdsa import SigningKey, SECP256k1
 import requests
 from hdwallet import HDWallet
 from hdwallet.symbols import BTC as SYMBOL
