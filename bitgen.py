@@ -272,12 +272,12 @@ def MmDrza():
         #addr = str.lower(ethadd)
         if addr in eadd :
             w += 1
-            print('Winner: '+str(w)+' Addr: ',ethadd,'  Priv Key:  ',priv.to_string().hex(),'\n')
-            f1 = open('Winner_ETH_Wallet.txt' , 'a')
-            f1.write('\nAddress     === '+str(addr))
-            f1.write('\nPrivateKey  === '+str(privatekey))
-            #f1.write('\nMnemonic    === '+str(words))
-            f1.write('\n            ---          \n')	
+            print('Winner: '+str(w)+' Addr: ',addr,'  Priv Key:  ',priv,'\n')
+            f2 = open('Winner_ETH_Wallet.txt' , 'a')
+            f2.write('\nAddress: '+str(addr))
+            f2.write('\nPrivateKey: '+str(priv))
+            #f2.write('\nMnemonic    === '+str(words))
+            f2.write('\n            ---          \n')	
 	
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
