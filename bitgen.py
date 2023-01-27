@@ -259,7 +259,7 @@ def MmDrza():
                   f"[A] ETH             : {addr} # Balance:{bal}\n" \
                   f"[P] PRIVATE KEY : {private_key}\n" \
                   f"{'=' * 26} ######### {'=' * 26}\n"
-        if bal1 != ifer or bal4 != ifer or bal6 != ifer:
+        if bal1 != ifer:
             w += 1
             with open(f"{filer1}.txt", "a", encoding="utf-8", errors="ignore") as pf:
                 pf.write(printer)
