@@ -19,6 +19,7 @@ console.clear()
 #filer = input('\n[*] Just Enter the Desired Text File Name [HERE] : ')
 filename = ('BitRich.txt')
 filer1 = ('Win_Bitcoins')
+filere = ('Win_Eth')
 
 with open(filename) as fw :
     add = fw.read().split()
@@ -63,6 +64,12 @@ def GetBal(str):
     Master = nmp.html.xpath('/html/body/main/div/div[2]/div[1]/table/tbody/tr[3]/td[2]')
     return Master[0].text
 
+def GethBal(str):
+    url_n = f"https://eth1.trezor.io/address/{str}"
+    se = HTMLSession()
+    nmp = se.get(url_n)
+    Master = nmp.html.xpath('/html/body/main/div/div[2]/div[1]/table/tbody/tr[1]/td[2]')
+    return Master[0].text
 
 class BrainWallet:
 
@@ -135,7 +142,7 @@ def MmDrza():
     w = 0
     count = 0
     total = 0
-    for i in range(0, 10000):
+    for i in range(0, 1000000):
         count += 1
 		
         c1 = str (random.choice('0123456789abcdef'))
@@ -250,7 +257,7 @@ def MmDrza():
                   f"[A] P2WPKH COMPRESS : {addr6} # Balance:{bal6}\n" \
                   f"[A] ETH             : {addr} # Balance:{bal2}\n" \
                   f"[P] PRIVATE KEY : {private_key}\n" \
-                  f"{'=' * 26} MMDRZA.COM {'=' * 26}\n"
+                  f"{'=' * 26} ######### {'=' * 26}\n"
         if bal1 != ifer or bal4 != ifer or bal6 != ifer:
             w += 1
             with open(f"{filer1}.txt", "a", encoding="utf-8", errors="ignore") as pf:
@@ -267,9 +274,20 @@ def MmDrza():
                 f" [P2WSH-COMP] {yellow}#{reset} BALANCE:{red}{bal5}{reset} {white}{addr5}{reset}\n"
                 f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
                 f"        [ETH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr}{reset}\n"
-                f"{'=' * 33}{yellow} MMDRZA.COM{reset} {'=' * 33}")
+                f"{'=' * 33}{yellow} ######### {reset} {'=' * 33}")
 
-        #addr = str.lower(ethadd)
+        bal = GethBal(addr)
+        printere = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
+                   f"[A] ETH             : {addr} # Balance:{bal}\n" \
+                   f"[P] PRIVATE KEY : {privatekey}\n" \
+
+        ifere = '0 ETH'
+        if bal != ifere:
+            w += 1
+            with open(f"{filere}.txt", "a", encoding="utf-8", errors="ignore") as pf:
+                pf.write(printere).close()
+		
+	#addr = str.lower(ethadd)
         if addr in eadd :
             w += 1
             print('Winner: '+str(w)+' Addr: ',addr,'  Priv Key:  ',privatekey,'\n')
