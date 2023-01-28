@@ -12,7 +12,7 @@ i = 0
 def guess():
   acct = w3.eth.account.create('KEYSMASH FJAFJKLDSKF7JKFDJ 1530')
   addr = acct.address
-
+  addr = str.lower(addr)
   print("     ",i, addr, acct.privateKey.hex())
   if addr in add:
      print(Fore.BLUE +"FOUND!!!", addr, " ", acct.privateKey.hex())
