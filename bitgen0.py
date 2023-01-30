@@ -18,9 +18,9 @@ console.clear()
 filename = ('Bitcoins.txt')
 filer1 = ('Win_Bitcoins')
 
-with open(filename) as fw :
-    add = fw.read().split()
-add = set(add)
+#with open(filename) as fw :
+    #add = fw.read().split()
+#add = set(add)
 
 #mylist = []
 
@@ -204,65 +204,33 @@ def MmDrza():
 
 
         #passphrase = mylist[i]
-        wallet = BrainWallet()
-        #private_key, address = wallet.generate_address_from_passphrase(passphrase)
-        address = wallet.generate_address_from_private_key(private_key)
-        hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
-        hdwallet.from_private_key(private_key=private_key)
+        #wallet = BrainWallet()
+        ##private_key, address = wallet.generate_address_from_passphrase(passphrase)
+        #address = wallet.generate_address_from_private_key(private_key)
+        #hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
+        #hdwallet.from_private_key(private_key=private_key)
         # All Address Type Bitcoin Wallet -------------------
-        addr1 = hdwallet.p2pkh_address()
-        addr2 = hdwallet.p2sh_address()
-        addr3 = hdwallet.p2wsh_address()
-        addr4 = hdwallet.p2wpkh_address()
-        addr5 = hdwallet.p2wsh_in_p2sh_address()
-        addr6 = hdwallet.p2wpkh_in_p2sh_address()
+        #addr1 = hdwallet.p2pkh_address()
+        #addr2 = hdwallet.p2sh_address()
+        #addr3 = hdwallet.p2wsh_address()
+        #addr4 = hdwallet.p2wpkh_address()
+        #addr5 = hdwallet.p2wsh_in_p2sh_address()
+        #addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
-        bal1 = str(0) #bal1 = GetBal(addr1)
-        bal2 = str(0)
-        bal3 = str(0)
-        bal4 = str(0)
-        bal5 = str(0)
-        bal6 = str(0)
-        total += 4
-        ifer = '0 BTC'
-        printer = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
-                  f"[A] P2SH            : {addr2} # Balance:{bal2}\n" \
-                  f"[A] P2WSH           : {addr3} # Balance:{bal3}\n" \
-                  f"[A] P2WPKH          : {addr4} # Balance:{bal4}\n" \
-                  f"[A] P2WSH COMPRESS  : {addr5} # Balance:{bal5}\n" \
-                  f"[A] P2WPKH COMPRESS : {addr6} # Balance:{bal6}\n" \
-                  f"[P] PRIVATE KEY : {private_key}\n" \
-                  f"{'=' * 26} MMDRZA.COM {'=' * 26}\n"
-        #if bal1 != ifer:
-        if addr1 in add or addr3 in add or addr4 in add or addr6 in add :
-            w += 1
-            with open(f"{filer1}.txt", "a", encoding="utf-8", errors="ignore") as pf:
-                pf.write(printer).close()
 
-        else:
-            print(
-                #f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Passphrase:{reset}{white}{passphrase}{reset}\n"
-                f"{red}SCAN:{count}{reset} - {red}CHECK/REQ:{reset}{yellow}{total}{reset} - {green}Found:{w}{reset} # {cyan}Priv:{reset}{white}{private_key}{reset}\n"
-                f"      [P2PKH] {yellow}#{reset} BALANCE:{red}{bal1}{reset} {white}{addr1}{reset}\n"
-                f"       [P2SH] {yellow}#{reset} BALANCE:{red}{bal2}{reset} {white}{addr2}{reset}\n"
-                f"      [P2WSH] {yellow}#{reset} BALANCE:{red}{bal3}{reset} {white}{addr3}{reset}\n"
-                f"     [P2WPKH] {yellow}#{reset} BALANCE:{red}{bal4}{reset} {white}{addr4}{reset}\n"
-                f" [P2WSH-COMP] {yellow}#{reset} BALANCE:{red}{bal5}{reset} {white}{addr5}{reset}\n"
-                f"[P2WPKH-COMP] {yellow}#{reset} BALANCE:{red}{bal6}{reset} {white}{addr6}{reset}\n"
-                f"{'=' * 33}{yellow} MMDRZA.COM{reset} {'=' * 33}")
-
+        print('',private_key,'\n')
         #addr = str.lower(ethadd)
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
-        if addr1 in add :
-            w += 1
-            print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
-            f1 = open('Winner_BTC_Wallet.txt' , 'a')
-            f1.write('\nAddress: '+str(addr1))
-            f1.write('\nPrivateKey: '+str(private_key))
-            #f1.write('\nMnemonic    === '+str(words))
-            f1.write('\n            ---          \n')
-            f1.close() 
+        #if addr1 in add :
+            #w += 1
+            #print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
+            #f1 = open('Winner_BTC_Wallet.txt' , 'a')
+            #f1.write('\nAddress: '+str(addr1))
+            #f1.write('\nPrivateKey: '+str(private_key))
+            ##f1.write('\nMnemonic    === '+str(words))
+            #f1.write('\n            ---          \n')
+            #f1.close() 
 	
 MmDrza()
 
