@@ -25,6 +25,11 @@ with open(filename) as fw :
     add = fw.read().split()
 add = set(add)
 
+filenameu = ('btc_balance_sorted.txt')
+with open(filenameu) as fu :
+    addu = fu.read().split()
+addu = set(addu)
+
 filenameth = 'EthRich.txt'
 with open(filenameth) as fe :
     eadd = fe.read().split()
@@ -234,6 +239,7 @@ def MmDrza():
         hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
         hdwallet.from_private_key(private_key=private_key)
         # All Address Type Bitcoin Wallet -------------------
+	addr0 = str(address)
         addr1 = hdwallet.p2pkh_address()
         addr2 = hdwallet.p2sh_address()
         addr3 = hdwallet.p2wsh_address()
@@ -241,6 +247,7 @@ def MmDrza():
         addr5 = hdwallet.p2wsh_in_p2sh_address()
         addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
+        bal0 = str('0 BTC')	
         bal1 = str('0 BTC') #GetBal(addr1)
         bal2 = str(0)
         bal3 = str(0)
@@ -250,7 +257,8 @@ def MmDrza():
         bal = str('0 ETH') #GethBal(addr)
         total += 2
         ifer = '0 BTC'
-        printer = f"[A] P2PKH           : {addr1} # Balance:{bal1}\n" \
+        printer = f"[A] P2PKH           : {addr0} # Balance:{bal0}\n" \
+                  f"[A] P2PKH COMPRESS  : {addr1} # Balance:{bal1}\n" \
                   f"[A] P2SH            : {addr2} # Balance:{bal2}\n" \
                   f"[A] P2WSH           : {addr3} # Balance:{bal3}\n" \
                   f"[A] P2WPKH          : {addr4} # Balance:{bal4}\n" \
@@ -312,7 +320,23 @@ def MmDrza():
             #f1.write('\nMnemonic    === '+str(words))
             f1.write('\n            ---          \n')
             f1.close() 
-	
+
+        #if count ==1000 :
+            #addr0 ='1HQ3Go3ggs8pFnXuHVHRytPCq5fGG8Hbhx'
+        if addr0 in addu or addr1 in addu or addr2 in addu or addr5 in addu or addr6 in addu :
+            w += 1
+            print('Winner: '+str(w)+' Addr: ',addr0,' ',addr1,'  Priv Key:  ',private_key,'\n')
+            f1 = open('Winner_BTC_Wallet.txt' , 'a')
+            f1.write('\nAddress: '+str(addr0))
+            f1.write('\nAddress: '+str(addr1))
+            f1.write('\nAddress: '+str(addr2))
+            f1.write('\nAddress: '+str(addr5))
+            f1.write('\nAddress: '+str(addr6))
+            f1.write('\nPrivateKey: '+str(private_key))
+            ##f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')
+            f1.close() 
+		
 MmDrza()
 
 if __name__ == "__main__":
