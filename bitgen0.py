@@ -218,7 +218,7 @@ def MmDrza():
         #addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
 
-        print('',private_key,'')
+        print('0x',private_key,'')
         #addr = str.lower(ethadd)
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
