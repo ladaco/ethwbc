@@ -204,9 +204,9 @@ def MmDrza():
 
 
         #passphrase = mylist[i]
-        #wallet = BrainWallet()
+        wallet = BrainWallet()
         ##private_key, address = wallet.generate_address_from_passphrase(passphrase)
-        #address = wallet.generate_address_from_private_key(private_key)
+        address = wallet.generate_address_from_private_key(private_key)
         hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
         hdwallet.from_private_key(private_key=private_key)
         # All Address Type Bitcoin Wallet -------------------
