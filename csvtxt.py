@@ -10,12 +10,13 @@ with open('btc_balance_sorted.csv') as csv_file:
         else:
             print(f'\t{row[0]} {row[1]}  {row[2]} {row[3]}')
             line_count += 1
+            f_out = open('btc_balance_sorted.txt', 'a')
+            content = (f'\n{row[0]}')
+            f_out.write(content)
+            f_out.close()
     print(f'Processed {line_count} lines.')
     
-    open('btc_balance_sorted.txt', 'w') as f_out:
-    content = (f'\t{row[0]}')
-    f_out.write(content)
-    f_out.close()
+
 
 #with open('btc_balance_sorted.csv', 'r') as f_in, open('btc_balance_sorted.txt', 'w') as f_out:
     #content = f_in.read().replace(',', ' ')
