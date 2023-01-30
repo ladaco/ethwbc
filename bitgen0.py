@@ -218,19 +218,19 @@ def MmDrza():
         #addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
         addr0 = str(address)
-        print(''+str(count)+' ',addr0,'',addr1,'',private_key,'')
+        print('Found: '+str(w)+'/'+str(count)+' ',addr0,'',addr1,'',private_key,'')
         #addr = str.lower(ethadd)
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
-        #if addr1 in add :
-            #w += 1
-            #print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
-            #f1 = open('Winner_BTC_Wallet.txt' , 'a')
-            #f1.write('\nAddress: '+str(addr1))
-            #f1.write('\nPrivateKey: '+str(private_key))
+        if addr1 in add :
+            w += 1
+            print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
+            f1 = open('Winner_BTC_Wallet.txt' , 'a')
+            f1.write('\nAddress: '+str(addr1))
+            f1.write('\nPrivateKey: '+str(private_key))
             ##f1.write('\nMnemonic    === '+str(words))
-            #f1.write('\n            ---          \n')
-            #f1.close() 
+            f1.write('\n            ---          \n')
+            f1.close() 
 	
 MmDrza()
 
