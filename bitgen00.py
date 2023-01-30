@@ -22,7 +22,7 @@ with open(filename) as fw :
     add = fw.read().split()
 add = set(add)
 
-filenameu = ('btc_balance_sorted.csv')
+filenameu = ('btc_balance_sorted.txt')
 with open(filenameu) as fu :
     addu = fu.read().split()
 addu = set(addu)
