@@ -79,7 +79,7 @@ class BrainWallet:
             private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
         key_bytes = key.to_string()
         key_hex = codecs.encode(key_bytes, 'hex')
-        bitcoin_byte = b'00'
+        bitcoin_byte = b'02'
         public_key = bitcoin_byte + key_hex
         return public_key
 
@@ -93,7 +93,7 @@ class BrainWallet:
         ripemd160_bpk.update(sha256_bpk_digest)
         ripemd160_bpk_digest = ripemd160_bpk.digest()
         ripemd160_bpk_hex = codecs.encode(ripemd160_bpk_digest, 'hex')
-        network_byte = b'00'
+        network_byte = b'01'
         network_bitcoin_public_key = network_byte + ripemd160_bpk_hex
         network_bitcoin_public_key_bytes = codecs.decode(
             network_bitcoin_public_key, 'hex')
