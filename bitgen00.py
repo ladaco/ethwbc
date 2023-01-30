@@ -79,7 +79,7 @@ class BrainWallet:
             private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
         key_bytes = key.to_string()
         key_hex = codecs.encode(key_bytes, 'hex')
-        bitcoin_byte = b'02'
+        bitcoin_byte = b'01'
         public_key = bitcoin_byte + key_hex
         return public_key
 
