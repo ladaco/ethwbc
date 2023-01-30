@@ -207,8 +207,8 @@ def MmDrza():
         wallet = BrainWallet()
         ##private_key, address = wallet.generate_address_from_passphrase(passphrase)
         address = wallet.generate_address_from_private_key(private_key)
-        #hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
-        #hdwallet.from_private_key(private_key=private_key)
+        hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
+        hdwallet.from_private_key(private_key=private_key)
         # All Address Type Bitcoin Wallet -------------------
         #addr1 = hdwallet.p2pkh_address()
         #addr2 = hdwallet.p2sh_address()
@@ -217,8 +217,8 @@ def MmDrza():
         #addr5 = hdwallet.p2wsh_in_p2sh_address()
         #addr6 = hdwallet.p2wpkh_in_p2sh_address()
         # All Value Check Balance ---------------------------
-        addr1 = str(address)
-        print('',addr1,'',private_key,'')
+        addr0 = str(address)
+        print(''+str(count)+' ',addr0,'',addr1,'',private_key,'')
         #addr = str.lower(ethadd)
         #if count ==10 :
             #addr1 ='16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN'
