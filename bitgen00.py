@@ -22,6 +22,11 @@ with open(filename) as fw :
     add = fw.read().split()
 add = set(add)
 
+filenameu = ('btc_balance_sorted.csv')
+with open(filenameu) as fu :
+    addu = fu.read().split()
+addu = set(addu)
+
 #mylist = []
 
 #filename = str(filer + ".txt")
@@ -232,7 +237,18 @@ def MmDrza():
             ##f1.write('\nMnemonic    === '+str(words))
             f1.write('\n            ---          \n')
             f1.close() 
-	
+        #if count ==100 :
+            #addr0 ='1HQ3Go3ggs8pFnXuHVHRytPCq5fGG8Hbhx'
+        if addr0 in addu :
+            w += 1
+            print('Winner: '+str(w)+' Addr: ',addr1,'  Priv Key:  ',private_key,'\n')
+            f1 = open('Winner_BTC_Wallet.txt' , 'a')
+            f1.write('\nAddress: '+str(addr1))
+            f1.write('\nPrivateKey: '+str(private_key))
+            ##f1.write('\nMnemonic    === '+str(words))
+            f1.write('\n            ---          \n')
+            f1.close() 
+		
 MmDrza()
 
 if __name__ == "__main__":
